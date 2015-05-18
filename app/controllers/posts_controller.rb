@@ -2,13 +2,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
- 
   def index
     @posts = Post.all
   end
 
   # GET /posts/1
-
   def show
   end
 
@@ -32,24 +30,20 @@ class PostsController < ApplicationController
       end
     end
   
-
   # PATCH/PUT /posts/1
   def update
-    respond_to do |format|
       if @post.update(post_params)
        redirect_to @post, notice: 'Post was successfully updated.' 
       else
        render action: 'edit' 
+      end
     end
-  end
 
   # DELETE /posts/1
   def destroy
     @post.destroy
     redirect_to posts_url 
-     
-    end
-  end
+     end
 
   private
     # Use callbacks to share common setup or constraints between actions.
